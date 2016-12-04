@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="dart" version="11.0.0.201609021200">
+  <ownedViewpoints name="Architect" modelFileExtension="dartspec">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Class_Diagram" domainClass="dart.Folder">
+      <metamodel href="http://www.obeo.fr/dsl/2014/dart#/"/>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Cacher les fonctions">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Fonction']"/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Cacher les variables">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Variable']"/>
+      </filters>
+      <validationSet name="Nom de classe">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="validation du nom des classes" level="ERROR" message="La classe doit avoir obligatoirement un nom." targetClass="dart.Class">
+          <audits auditExpression="aql:not (self.name.equalsIgnoreCase(null))"/>
+        </ownedRules>
+      </validationSet>
+      <defaultLayer name="Default">
+        <containerMappings name="Class" labelDirectEdit="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:assets" domainClass="dart.Class" childrenPresentation="List">
+          <subNodeMappings name="Variable" labelDirectEdit="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:eAllContents" domainClass="dart.Variable">
+            <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="Fonction" labelDirectEdit="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:eAllContents" domainClass="dart.Function">
+            <style xsi:type="style:SquareDescription" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='colorPalette']/@entries[name='DartColor2']" foregroundColor="//@userColorsPalettes[name='colorPalette']/@entries[name='DartColor2']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.abstract">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom" backgroundColor="//@userColorsPalettes[name='colorPalette']/@entries[name='DartColor1']" foregroundColor="//@userColorsPalettes[name='colorPalette']/@entries[name='DartColor1']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="New">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="fonction" nodeMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Fonction']" extraMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Fonction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Function" referenceName="methods">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newFonction"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="variable" nodeMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Variable']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Variable" referenceName="fields">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newVariable"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="classe" containerMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Class" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newClasse"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Edit">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="edit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Switch">
+                <cases conditionExpression="aql:self.oclIsKindOf(dart::Variable)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+                </cases>
+                <cases conditionExpression="aql:self.oclIsKindOf(dart::Function)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+                </cases>
+                <cases conditionExpression="aql:self.oclIsKindOf(dart::Class)">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+                </cases>
+                <default/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Relationships">
+        <edgeMappings name="heritage" sourceMapping="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']" targetFinderExpression="feature:extends">
+          <style targetArrow="InputClosedArrow" sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="liens">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="heritage" edgeMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@additionalLayers[name='Relationships']/@edgeMappings[name='heritage']" extraSourceMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']" extraTargetMappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="extends" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.univnantes.alma.dsl.dart.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="Developer" modelFileExtension="dartspec">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Explorer_Diagram" domainClass="dart.Folder" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="folder" semanticCandidatesExpression="feature:assets" domainClass="dart.Folder">
+          <conditionnalStyles predicateExpression="aql:self.assets->size() = 0">
+            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.assets->size() > 0">
+            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_documents_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="classe" semanticCandidatesExpression="feature:assets" domainClass="dart.Class">
+          <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(dart::Component)">
+            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/component_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <userColorsPalettes name="colorPalette">
+    <entries xsi:type="description:UserFixedColor" red="78" green="205" blue="196" name="DartColor1"/>
+    <entries xsi:type="description:UserFixedColor" red="199" green="244" blue="100" name="DartColor2"/>
+  </userColorsPalettes>
+</description:Group>
