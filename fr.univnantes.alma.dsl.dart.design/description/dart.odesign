@@ -127,25 +127,85 @@
       <defaultLayer name="Default">
         <nodeMappings name="folder" semanticCandidatesExpression="feature:assets" domainClass="dart.Folder">
           <conditionnalStyles predicateExpression="aql:self.assets->size() = 0">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_512x512.png">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_512x512.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.assets->size() > 0">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_documents_512x512.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_documents_512x512.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="classe" semanticCandidatesExpression="feature:assets" domainClass="dart.Class">
-          <conditionnalStyles predicateExpression="aql:self.oclIsKindOf(dart::Component)">
-            <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/component_512x512.png">
+        <nodeMappings name="decorator" semanticCandidatesExpression="feature:assets" domainClass="dart.Decorator">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/decorator_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="controller" semanticCandidatesExpression="feature:assets" domainClass="dart.Controller">
+          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/controller_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="component" semanticCandidatesExpression="feature:assets" domainClass="dart.Component">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/component_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="htmlFile" semanticCandidatesExpression="feature:assets" domainClass="dart.HTML">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/html_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="cssFile" semanticCandidatesExpression="feature:assets" domainClass="dart.Stylesheet">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/css_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.name.strstr('.scss')">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/sass_512x512.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.name.strstr('.less')">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/less_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="image" semanticCandidatesExpression="feature:assets" domainClass="dart.Asset">
+          <conditionnalStyles predicateExpression="aql:self.name.strstr('.jpeg')">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/jpeg_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.name.strstr('.png')">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/png_512x512.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="jsonFile" preconditionExpression="aql:self.name.strstr('.json')" semanticCandidatesExpression="feature:assets" domainClass="dart.Asset">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/npm_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="class" preconditionExpression="aql:(not self.oclIsKindOf(dart::Controller)) and (not self.oclIsKindOf(dart::Component)) and (not self.oclIsKindOf(dart::Decorator))" semanticCandidatesExpression="feature:assets" domainClass="dart.Class">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/dart_512x512.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
       </defaultLayer>
     </ownedRepresentations>
