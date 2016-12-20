@@ -32,7 +32,10 @@
           <methods name="create"/>
         </assets>
         <assets xsi:type="dart:Component" name="CreateCall" extends="//@packages.0/@assets.0/@assets.0/@assets.7" template="//@packages.0/@assets.0/@assets.0/@assets.6" selector="create-call"/>
-        <assets xsi:type="dart:Class" name="MyDartClass"/>
+        <assets xsi:type="dart:Class" name="MyDartClass" abstract="true" extends="//@packages.0/@assets.0/@assets.0/@assets.2"/>
+        <assets xsi:type="dart:Stylesheet" name="newFile.less" partial="false"/>
+        <assets name="newFile.mp4"/>
+        <assets name="newFile.js"/>
       </assets>
       <assets xsi:type="dart:Folder" name="decorators">
         <assets xsi:type="dart:Decorator" name="Toggle">

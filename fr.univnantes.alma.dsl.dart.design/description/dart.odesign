@@ -221,7 +221,7 @@
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="E_JavascriptFile" preconditionExpression="aql:self.name.strstr('.js')" semanticCandidatesExpression="feature:assets" createElements="false" domainClass="dart.Asset">
+        <nodeMappings name="E_JavascriptFile" preconditionExpression="aql:self.name.strstr('.js')" semanticCandidatesExpression="feature:assets" domainClass="dart.Asset">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/js_512x512.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -435,7 +435,7 @@
       <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" labelExpression="container" helpExpression="The container of the asset" referenceNameExpression="container" referenceOwnerExpression="var:self"/>
     </groups>
     <groups identifier="dart.Class" labelExpression="Properties" domainClass="dart.Class" semanticCandidateExpression="var:self">
-      <controls xsi:type="properties:CheckboxDescription" labelExpression="Abstract" helpExpression="Check if the class is abstract">
+      <controls xsi:type="properties:CheckboxDescription" labelExpression="Abstract" helpExpression="Check if the class is abstract" valueExpression="feature:abstract">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="var:newValue"/>
         </initialOperation>
