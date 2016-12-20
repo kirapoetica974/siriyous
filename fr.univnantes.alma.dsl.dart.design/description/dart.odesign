@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="dart" version="11.0.0.201609021200">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="dart" version="11.0.0.201609021200">
   <ownedViewpoints name="Architect" modelFileExtension="dartspec">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Class_Diagram" domainClass="dart.Folder">
       <metamodel href="http://www.obeo.fr/dsl/2014/dart#/"/>
-      <filters xsi:type="filter:CompositeFilterDescription" name="Cacher les fonctions">
+      <filters xsi:type="filter:CompositeFilterDescription" name="Hide the functions">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Fonction']"/>
       </filters>
-      <filters xsi:type="filter:CompositeFilterDescription" name="Cacher les variables">
+      <filters xsi:type="filter:CompositeFilterDescription" name="Hide the variables">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']/@subNodeMappings[name='Variable']"/>
       </filters>
-      <validationSet name="Nom de classe">
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="validation du nom des classes" level="ERROR" message="La classe doit avoir obligatoirement un nom." targetClass="dart.Class">
+      <validationSet name="Name of the class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Validation of the class name" level="ERROR" message="The class must have a name." targetClass="dart.Class">
           <audits auditExpression="aql:not (self.name.equalsIgnoreCase(null))"/>
         </ownedRules>
       </validationSet>
@@ -95,6 +95,15 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Navigation">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Switch_diagram" label="Switch Diagram">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
       <additionalLayers name="Relationships">
         <edgeMappings name="heritage" sourceMapping="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']" targetMapping="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']/@defaultLayer/@containerMappings[name='Class']" targetFinderExpression="feature:extends">
@@ -120,12 +129,14 @@
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="fr.univnantes.alma.dsl.dart.design.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="Developer" modelFileExtension="dartspec">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Explorer_Diagram" domainClass="dart.Folder" enablePopupBars="true">
+      <validationSet name="Extension of PNG image">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Validation of PNG extension" level="ERROR" targetClass="dart.Asset"/>
+      </validationSet>
       <defaultLayer name="Default">
-        <nodeMappings name="E_Folder" semanticCandidatesExpression="feature:assets" domainClass="dart.Folder">
+        <nodeMappings name="E_Folder" semanticCandidatesExpression="feature:assets" doubleClickDescription="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='E_Navigation']" domainClass="dart.Folder">
           <conditionnalStyles predicateExpression="aql:self.assets->size() = 0">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/folder_512x512.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -146,7 +157,7 @@
           </style>
         </nodeMappings>
         <nodeMappings name="E_Controller" semanticCandidatesExpression="feature:assets" domainClass="dart.Controller">
-          <style xsi:type="style:WorkspaceImageDescription" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/controller_512x512.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" showIcon="false" sizeComputationExpression="20" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.univnantes.alma.dsl.dart.design/icons/explorer/controller_512x512.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -212,7 +223,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Folder" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newFolder"/>
                 </subModelOperations>
@@ -223,7 +234,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Class" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newClass"/>
                 </subModelOperations>
@@ -234,7 +245,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Controller" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newController"/>
                 </subModelOperations>
@@ -245,7 +256,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Component" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newComponent"/>
                 </subModelOperations>
@@ -256,7 +267,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Decorator" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newDecorator"/>
                 </subModelOperations>
@@ -267,11 +278,82 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.HTML" referenceName="assets">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newHtmlFile"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New_PNG" label="New PNG image" nodeMappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_Image']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Asset" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newImage.png"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New_JPEG" label="New JPEG image" nodeMappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_Image']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Asset" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newImage.jpeg"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New_JSON" label="New JSON file" nodeMappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_JsonFile']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Asset" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newFile.json"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New_SASS" label="New SASS file" nodeMappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_CssFile']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Stylesheet" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newFile.scss"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New_LESS" label="New LESS file" nodeMappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_CssFile']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="dart.Stylesheet" referenceName="assets">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newFile.less"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Navigation">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="E_Navigation" label="Navigation" mappings="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']/@defaultLayer/@nodeMappings[name='E_Folder']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Developer']/@ownedRepresentations[name='Explorer_Diagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="E_Switch_diagram" label="Switch diagram">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='Architect']/@ownedRepresentations[name='Class_Diagram']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -282,4 +364,36 @@
     <entries xsi:type="description:UserFixedColor" red="78" green="205" blue="196" name="DartColor1"/>
     <entries xsi:type="description:UserFixedColor" red="199" green="244" blue="100" name="DartColor2"/>
   </userColorsPalettes>
+  <extensions xsi:type="properties:ViewExtensionDescription" identifier="Properties">
+    <pages identifier="General" labelExpression="General" domainClass="dart.Asset" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.0"/>
+    <pages identifier="Class properties" labelExpression="Class properties" domainClass="dart.Class" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.1"/>
+    <groups identifier="Global Proporties" labelExpression="Global Proporties" domainClass="dart.Asset" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Name" helpExpression="The name of the element" valueExpression="feature:name">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" labelExpression="container" helpExpression="The container of the asset" referenceNameExpression="container" referenceOwnerExpression="var:self"/>
+    </groups>
+    <groups identifier="dart.Class" labelExpression="Properties" domainClass="dart.Class" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:CheckboxDescription" labelExpression="Abstract" helpExpression="Check if the class is abstract">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="var:newValue"/>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" labelExpression="Extends" helpExpression="The superClass of this class" isEnabledExpression="aql:self.extends" referenceNameExpression="extends" referenceOwnerExpression="var:self"/>
+      <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" labelExpression="implements" helpExpression="The interfaces implemented by this class" referenceNameExpression="implements" referenceOwnerExpression="var:self"/>
+      <controls xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" labelExpression="mixins" helpExpression="The mixins used by this class" referenceNameExpression="mixins" referenceOwnerExpression="var:self"/>
+      <validationSet>
+        <propertyValidationRules name="ValidationNameClassAbstract" label="Validation of the abstract class name" level="WARNING" message="An abstract class name must be prefix by &quot;Abstract&quot;.">
+          <audits auditExpression="aql:not self.oclIsKindOf(dart::Class) or (not self.abstract or self.name.startsWith('Abstract'))"/>
+          <fixes name="Prefix the abstract class name by the prefix &quot;Abstract&quot;">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:self.name.prefix('Abstract')"/>
+            </initialOperation>
+          </fixes>
+        </propertyValidationRules>
+      </validationSet>
+    </groups>
+  </extensions>
 </description:Group>

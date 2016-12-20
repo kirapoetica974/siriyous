@@ -32,6 +32,7 @@
           <methods name="create"/>
         </assets>
         <assets xsi:type="dart:Component" name="CreateCall" extends="//@packages.0/@assets.0/@assets.0/@assets.7" template="//@packages.0/@assets.0/@assets.0/@assets.6" selector="create-call"/>
+        <assets xsi:type="dart:Class" name="MyDartClass"/>
       </assets>
       <assets xsi:type="dart:Folder" name="decorators">
         <assets xsi:type="dart:Decorator" name="Toggle">
@@ -104,6 +105,7 @@
           </methods>
         </assets>
       </assets>
+      <assets xsi:type="dart:Stylesheet" name="new.less" partial="false"/>
     </assets>
     <assets xsi:type="dart:Folder" name="test">
       <assets xsi:type="dart:Folder" name="unit"/>
